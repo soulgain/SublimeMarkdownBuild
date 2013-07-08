@@ -1,6 +1,7 @@
 {
     "output_html" : false,
     "open_html_in" : "browser",  // possible values are "browser", "sublime", or "both", default is "browser"
-    "use_css" : true,
+    "use_css" : "github2",
+    // github, github2, markdown, Clearness Dark, Clearness
     "charset" : "UTF-8" 
 }

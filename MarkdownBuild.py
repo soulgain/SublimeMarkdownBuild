@@ -17,7 +17,7 @@ class MarkdownBuild(sublime_plugin.WindowCommand):
         s = sublime.load_settings("MarkdownBuild.sublime-settings")
         output_html = s.get("output_html", False)
         open_html_in = s.get("open_html_in", "browser")
-        use_css = s.get("use_css", True)
+        use_css = s.get("use_css", "markdown")
         charset = s.get("charset", "UTF-8")
 
         view = self.window.active_view()
@@ -30,7 +30,7 @@ class MarkdownBuild(sublime_plugin.WindowCommand):
         md = markdown_python.markdown(contents)
         html = '<html><meta charset="' + charset + '">'
         if use_css:
-            css = os.path.join(sublime.packages_path(), 'MarkdownBuild', 'markdown.css')
+            css = os.path.join(sublime.packages_path(), 'MarkdownBuild', use_css+'.css')
             if (os.path.isfile(css)):
                 styles = open(css, 'r').read()
                 html += '<style>' + styles + '</style>'
